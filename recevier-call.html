@@ -30,24 +30,15 @@ peer.on('call', function(call) {
         call.answer(stream); // Answer the call with an A/V stream.
         call.on('stream', function(remoteStream) {
 
-
-
-
             let v = $("#video")[0];
             if ("srcObject" in v) {
-                v.srcObject = stream;
+                v.srcObject = remoteStream;
             } else {
-                v.src = window.URL.createObjectURL(stream);
+                v.src = window.URL.createObjectURL(remoteStream);
             }
             v.onloadedmetadata = function (e) {
                 v.play();
             };
-
-
-
-
-
-
 
     });
   }, function(err) {

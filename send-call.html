@@ -28,9 +28,9 @@ $("#connect-button").click(() => {
 
             let v = $("#video")[0];
             if ("srcObject" in v) {
-                v.srcObject = stream;
+                v.srcObject = remoteStream;
             } else {
-                v.src = window.URL.createObjectURL(stream);
+                v.src = window.URL.createObjectURL(remoteStream);
             }
             v.onloadedmetadata = function (e) {
                 v.play();
